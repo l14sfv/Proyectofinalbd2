@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tienda MongoDB Pro - Dashboard Admin</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="dark-dashboard">
+    <div class="dashboard-wrapper">
+      <aside class="sidebar">
+        <div class="sidebar-brand">Tienda</div>
+        <nav class="sidebar-nav">
+          <a href="#" class="nav-item active"
+            ><i class="icon-home"></i> Inicio</a
+          >
+          <a href="#" class="nav-item"><i class="icon-catalog"></i> Catálogo</a>
+          <a href="#" class="nav-item"><i class="icon-cart"></i> Mi Carrito</a>
+          <a href="#" class="nav-item"><i class="icon-user"></i> Mi Perfil</a>
+        </nav>
+        <div class="sidebar-footer">
+          <div class="user-profile">Cliente: <strong>Yaha</strong></div>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-title">Total Productos</div>
+            <div class="metric-value" id="met-productos-valor">0</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-title">Artículos en Carrito</div>
+            <div class="metric-value" id="met-carrito-valor">0</div>
+          </div>
+        </div>
+
+        <div class="dashboard-panel">
+          <div class="panel-header">
+            <h2>Catálogo y Inventario en Vivo</h2>
+
+            <div class="panel-controls">
+              <label for="combo-categorias"> Filtrar por Categoría:</label>
+              <select id="combo-categorias" onchange="cambiarCategoria()">
+                <option value="TODOS">--- Todas ---</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="panel-body">
+            <div class="catalog-section">
+              <h3>Catálogo de Productos</h3>
+              <div id="lista-productos" class="grid-productos-dashboard"></div>
+            </div>
+
+            <div class="cart-section">
+              <h3>Detalle de Carrito de Compras</h3>
+              <div id="contenido-carrito" class="detailed-cart"></div>
+              <div class="total-box-detailed">
+                Total: $<span id="total-precio">0.00</span>
+              </div>
+              <button
+                class="btn-comprar btn-dashboard-purchase"
+                onclick="procesarPago()"
+              >
+                ⚡ Realizar Compra
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
